@@ -1,9 +1,11 @@
 package com.bean;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.Query;
 import java.io.BufferedReader;
@@ -97,9 +99,10 @@ public class CRUD {
 
     public void fetchAllAuthors() {
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
+//        Transaction transaction = session.beginTransaction();
         Query query = session.createQuery("from Author");
         List<Author> list = (List<Author>) ((org.hibernate.query.Query<?>) query).list();
+//        list.stream().forEach(System.out::println);
         for (Author author : list) {
             System.out.println(author);
         }
@@ -129,6 +132,10 @@ public class CRUD {
         query.setParameter("book_id",id);
         query.executeUpdate();
     }
+
+
+
+
 
 
 }

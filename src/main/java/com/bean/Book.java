@@ -24,6 +24,13 @@ public class Book {
         this.authorList = authorList;
     }
 
+    public Book( String book_name, String author_name, float book_price) {
+        this.book_name = book_name;
+        this.author_name = author_name;
+        this.book_price = book_price;
+        this.authorList = authorList;
+    }
+
     public Book() {
 
     }
